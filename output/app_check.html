@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Campus Customs: App Check</title>
+    <style>
+      :root {
+        --blue: #00366b;
+        --blue-deep: #00264d;
+        --blue-tint: #e8eef5;
+        --black: #111111;
+        --text: #1d1d1d;
+        --muted: #4d4d4d;
+        --border: #d9d9d9;
+        --pass: #0b6b3a;
+        --pass-bg: #e3f4ea;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family: 'Segoe UI', system-ui, -apple-system, Roboto, Arial, sans-serif;
+        line-height: 1.55;
+        color: var(--text);
+        background: #ffffff;
+      }
+      header.report-head {
+        color: #ffffff;
+        background: linear-gradient(135deg, var(--blue-deep), var(--blue));
+        border-bottom: 10px solid transparent;
+        border-image: linear-gradient(var(--blue-deep) 0 3px, #fff 3px 5px, var(--blue) 5px 7px, #fff 7px 8px, var(--blue-deep) 8px 10px) 10;
+      }
+      .wrap {
+        width: min(1100px, 100% - 2.5rem);
+        margin: 0 auto;
+      }
+      header.report-head .wrap {
+        padding: 2.5rem 0 2rem;
+      }
+      .eyebrow {
+        margin: 0 0 0.4rem;
+        font-size: 0.8rem;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        opacity: 0.85;
+      }
+      h1 {
+        margin: 0 0 0.5rem;
+        font-family: Georgia, 'Times New Roman', serif;
+        font-weight: 400;
+        font-size: 2.4rem;
+      }
+      header.report-head p {
+        margin: 0;
+        max-width: 760px;
+        color: #dbe5f1;
+      }
+      main .wrap {
+        padding: 2rem 0 3rem;
+      }
+      h2 {
+        margin: 0 0 0.25rem;
+        font-family: Georgia, 'Times New Roman', serif;
+        font-weight: 400;
+        font-size: 1.8rem;
+        color: var(--black);
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 0.5rem 0 1rem;
+        font-size: 0.95rem;
+      }
+      th,
+      td {
+        text-align: left;
+        padding: 0.55rem 0.7rem;
+        border-bottom: 1px solid var(--border);
+        vertical-align: top;
+      }
+      th {
+        background: var(--blue-tint);
+        color: var(--blue-deep);
+      }
+      .pill {
+        display: inline-block;
+        padding: 0.05rem 0.55rem;
+        font-size: 0.78rem;
+        font-weight: 800;
+        letter-spacing: 0.06em;
+        color: var(--pass);
+        background: var(--pass-bg);
+        border-radius: 999px;
+      }
+      section.check {
+        margin-top: 2.75rem;
+        padding-top: 2rem;
+        border-top: 3px solid var(--blue);
+      }
+      .check-head {
+        display: flex;
+        align-items: baseline;
+        gap: 0.75rem;
+        flex-wrap: wrap;
+      }
+      .check-sub {
+        margin: 0 0 1rem;
+        color: var(--muted);
+      }
+      figure {
+        margin: 1.25rem 0 1.75rem;
+      }
+      figure a {
+        display: block;
+      }
+      figure img {
+        display: block;
+        width: 100%;
+        height: auto;
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+      }
+      figure img.narrow {
+        max-width: 820px;
+      }
+      figcaption {
+        margin-top: 0.7rem;
+        font-size: 1rem;
+      }
+      figcaption strong {
+        color: var(--blue-deep);
+      }
+      details {
+        margin: 0.4rem 0 0;
+        padding: 0.6rem 0.9rem;
+        background: #f6f7f9;
+        border-radius: 8px;
+        font-size: 0.92rem;
+      }
+      summary {
+        cursor: pointer;
+        font-weight: 700;
+        color: var(--blue);
+      }
+      .chat-line {
+        margin: 0.4rem 0;
+      }
+      .chat-line b {
+        color: var(--blue-deep);
+      }
+      code {
+        font-family: Consolas, 'Courier New', monospace;
+        font-size: 0.88em;
+        background: var(--blue-tint);
+        padding: 0.05rem 0.3rem;
+        border-radius: 4px;
+      }
+      header.report-head code {
+        color: #ffffff;
+        background: rgba(255, 255, 255, 0.16);
+      }
+      footer {
+        padding: 1.5rem 0 2.5rem;
+        color: var(--muted);
+        font-size: 0.88rem;
+        border-top: 1px solid var(--border);
+      }
+    </style>
+  </head>
+  <body>
+    <header class="report-head">
+      <div class="wrap">
+        <p class="eyebrow">HW4 · Problem 11 · Site testing</p>
+        <h1>Campus Customs: App Check</h1>
+        <p>
+          Three checks of the live site, each with a screenshot and what it proves. Screenshots were taken on
+          October 5, 2026 at 10:14 PM from the running site (React front end on <code>127.0.0.1:5173</code>,
+          FastAPI and the PydanticAI agent on <code>127.0.0.1:8000</code>), and every number was compared with
+          <code>data/campus_customs.db</code> at the same moment.
+        </p>
+      </div>
+    </header>
+
+    <main>
+      <div class="wrap">
+        <h2>Summary</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Check</th>
+              <th>What we asked or did</th>
+              <th>Result</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1. Chat checks inventory</td>
+              <td>"Is this in stock in XL? How many mediums are left, and what's the price?" on the Baseball Left Chest Crewneck page</td>
+              <td><span class="pill">PASS</span> Sold out in XL, 5 mediums left, $58, all matching the database</td>
+            </tr>
+            <tr>
+              <td>2. Search-result cards</td>
+              <td>"What hoodies do you have?" from the home page</td>
+              <td><span class="pill">PASS</span> 27 hoodie cards appeared on the Products page ($45–$88), matching the database</td>
+            </tr>
+            <tr>
+              <td>3. Usability feature (Problem 9)</td>
+              <td>Saved cart: the chatbot adds an item, the cart page saves it, and a reminder email is drafted</td>
+              <td><span class="pill">PASS</span> Cart badge 1, cart row saved in <code>cart_items</code>, draft in <code>email_outbox</code></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- ================= Check 1 ================= -->
+        <section class="check" id="check-1">
+          <div class="check-head">
+            <h2>Check 1: The chat checks an item's inventory and price</h2>
+            <span class="pill">PASS</span>
+          </div>
+          <p class="check-sub">Guest shopper on the Baseball Left Chest Crewneck product page.</p>
+          <figure>
+            <a href="app_check_images/inventory.png"><img src="app_check_images/inventory.png" alt="Product page for the Baseball Left Chest Crewneck with the chat open. The page shows XS and XL sold out and M with only 5 left; the chat reply says it is sold out in XL, only 5 mediums are left, and it costs $58." /></a>
+            <figcaption>
+              <strong>What this proves:</strong> Asked "Is this in stock in XL? How many mediums are left, and what's the price?", the
+              agent answered "sold out in XL… only 5 mediums left… $58." That matches both the size buttons on the same page
+              and the <code>inventory</code> and <code>catalogue</code> tables, so the stock and price came from the database,
+              not a guess.
+            </figcaption>
+            <details>
+              <summary>Chat transcript and database values</summary>
+              <p class="chat-line"><b>Shopper:</b> Is this in stock in XL? How many mediums are left, and what's the price?</p>
+              <p class="chat-line"><b>Agent:</b> The Baseball Left Chest Crewneck is sold out in XL. There are only 5 mediums left, and it's $58.</p>
+              <table>
+                <thead>
+                  <tr><th>Database</th><th>XS</th><th>S</th><th>M</th><th>L</th><th>XL</th><th>XXL</th><th>Price</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td><code>inventory</code> / <code>catalogue</code></td><td>0</td><td>15</td><td>5</td><td>25</td><td>0</td><td>25</td><td>$58.00</td></tr>
+                </tbody>
+              </table>
+              <p>The agent used its <code>check_stock</code> tool, and the backend rejects any reply that quotes a price or stock level without a database lookup for that message.</p>
+            </details>
+          </figure>
+        </section>
+
+        <!-- ================= Check 2 ================= -->
+        <section class="check" id="check-2">
+          <div class="check-head">
+            <h2>Check 2: A category question puts search-result cards on the page</h2>
+            <span class="pill">PASS</span>
+          </div>
+          <p class="check-sub">Guest shopper starting on the home page.</p>
+          <figure>
+            <a href="app_check_images/search_results.png"><img src="app_check_images/search_results.png" alt="The Products page after asking the chat what hoodies are available: a 'From your chat' banner reading Hoodies, 27 matches, $45 to $88, above a grid of hoodie product cards, with the chat reply and a '27 on the page: Hoodies' chip on the right." /></a>
+            <figcaption>
+              <strong>What this proves:</strong> After "What hoodies do you have?", the site moved from the home page to
+              <code>/products</code> and showed a "From your chat" banner (Hoodies · 27 matches · $45–$88) over 27 hoodie
+              cards, each with an image, name, price, short info, and sizes in stock. The agent returned the search as structured
+              data and the front end rendered it, and clicking the first card (Basic Hoodie Big Yale) still opened its product page.
+            </figcaption>
+            <details>
+              <summary>Chat transcript and database values</summary>
+              <p class="chat-line"><b>Shopper:</b> What hoodies do you have?</p>
+              <p class="chat-line"><b>Agent:</b> We have 27 hoodies, ranging from $45 to $88. Standouts include the Basic Hoodie Big Yale, Champion Reverse Weave Hoodie 1, and District Vit Hoodie Vintage Bulldog. I put all the hoodies on the Products page so you can browse them.</p>
+              <table>
+                <thead><tr><th>Item</th><th>On the page</th><th>In the database</th></tr></thead>
+                <tbody>
+                  <tr><td>Hoodies</td><td>27 cards</td><td>27 catalogue rows whose garment type is a hoodie</td></tr>
+                  <tr><td>Price range</td><td>$45–$88</td><td>$45.00–$88.00</td></tr>
+                </tbody>
+              </table>
+            </details>
+          </figure>
+        </section>
+
+        <!-- ================= Check 3 ================= -->
+        <section class="check" id="check-3">
+          <div class="check-head">
+            <h2>Check 3: Usability feature from Problem 9, a saved cart with chat and reminder emails</h2>
+            <span class="pill">PASS</span>
+          </div>
+          <p class="check-sub">
+            A brand-new test shopper, Casey Checker, signed up with "Email me a reminder if I leave something in my cart" checked.
+          </p>
+
+          <figure>
+            <a href="app_check_images/cart_chat.png"><img src="app_check_images/cart_chat.png" alt="Yale Mom Hoodie product page with the chat open. The shopper asked to add this hoodie in a large to the cart; the agent replied that it added the Yale Mom Hoodie in L for $68, and the Cart badge in the header shows 1." /></a>
+            <figcaption>
+              <strong>What this proves:</strong> On the Yale Mom Hoodie page, "Please add this hoodie in a large to my cart" made
+              the agent add it with its <code>add_to_cart</code> tool ("Added the Yale Mom Hoodie in L to your cart, Casey. It's
+              $68."), and the Cart badge in the header updated to 1 right away. The agent knew "this hoodie" from the page and
+              checked live stock before adding.
+            </figcaption>
+          </figure>
+
+          <figure>
+            <a href="app_check_images/cart_page.png"><img src="app_check_images/cart_page.png" alt="The Your cart page showing one Yale Mom Hoodie in size L for $68, a summary of 1 item for $68.00, a disabled Checkout coming soon button, and a checked box to email a reminder if items are left in the cart." /></a>
+            <figcaption>
+              <strong>What this proves:</strong> The cart page shows the hoodie (size L, $68.00) saved to Casey's account, along with
+              quantity controls, a live-priced summary, and the reminder opt-in checked. The database confirms it: one
+              <code>cart_items</code> row (<code>yale-mom-hoodie</code>, L, 1), and <code>users.cart_emails = 1</code>.
+            </figcaption>
+          </figure>
+
+          <figure>
+            <a href="app_check_images/cart_email.png"><img class="narrow" src="app_check_images/cart_email.png" alt="A drafted email in the staff outbox, addressed to the test shopper, subject 'Your Yale Mom Hoodie Is Waiting', listing the Yale Mom Hoodie size L for $68.00, the subtotal, a link back to the cart, and an unsubscribe note." /></a>
+            <figcaption>
+              <strong>What this proves:</strong> From the staff outbox, drafting reminders produced an email to Casey ("Your Yale Mom
+              Hoodie Is Waiting") listing the real item, size, price, and subtotal, with a link back to the cart and an opt-out line.
+              It's saved as a <code>draft</code> in <code>email_outbox</code>, so the shop can follow up with shoppers who left
+              something behind.
+            </figcaption>
+          </figure>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      <div class="wrap">
+        How these were captured: an automated browser (Playwright driving Microsoft Edge at 1920×1080, with motion turned off so
+        nothing was caught mid-animation) used the site the way a shopper would, by typing in the chat, clicking cards, and signing
+        up. Database values were read from <code>data/campus_customs.db</code> right after each step. Click any screenshot to open
+        it full size.
+      </div>
+    </footer>
+  </body>
+</html>

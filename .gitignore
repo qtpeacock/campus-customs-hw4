@@ -1,0 +1,28 @@
+# Course data pack: the database and product images must never be committed.
+data/
+data.zip
+*.db
+
+# Secrets (commit only .env.example with placeholders)
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Node / Vite
+node_modules/
+dist/
+
+# Audit trail temp files and set-aside copies (the trail itself, output/audit_trail.json, is committed)
+*.json.tmp
+output/audit_trail.corrupt-*.json
+
+# OS / editor clutter
+.DS_Store
+Thumbs.db
+.vscode/
