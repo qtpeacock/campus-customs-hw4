@@ -365,3 +365,4 @@ Nothing — the prompt and the file-tree screenshots gave the layout, what must 
 - `.gitignore` excludes `data/`, `data.zip`, `*.db`, `.env` (while keeping `.env.example`), Python caches and virtual environments, `node_modules/`, `dist/`, and audit temp files. `.env.example` holds placeholders only.
 - Before pushing, scanned all 74 staged files: the real `PORTKEY_API_KEY` appears nowhere; no database, `.env`, `data/`, or product image files are included; and the audit trail contains no email addresses.
 - Repository: https://github.com/qtpeacock/campus-customs-hw4 (public).
+- Verified after pushing: GitHub reports the repo as PUBLIC; the page opens without logging in (HTTP 200); an anonymous `git clone` gets all 74 files in the expected layout with no `.env`, `data/`, or database; and in that fresh clone, unzipping the data pack and starting the backend served 102 products and images, and the test login worked.
